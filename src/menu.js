@@ -1,4 +1,5 @@
 const { BrowserWindow, Menu } = require('electron');
+const path = require('path');
 
 exports.setupMenu = function(app) {
   const template = [
@@ -21,7 +22,7 @@ exports.setupMenu = function(app) {
               .getFocusedWindow()
               .webContents
               .savePage('/tmp/mdp.html', 'HTMLComplete', (error) => {
-                require('electron').shell.openItem('/tmp/mdp.html');
+		require('electron').shell.openItem(path.join(path.sep, 'tmp', 'mdp.html'));
               });
           }
         },
